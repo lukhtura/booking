@@ -1,11 +1,28 @@
+//CORE
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+//ENGINE
+import { pages } from "@/engine/config/routes";
+
+//PARTS
+import Layout from "@/ui/containers/Layout";
 
 
 function App() {
     return (
-        <div className="app">
-            <p>h1</p>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    {pages.map(page =>
+                        <Route
+                            path={page.path}
+                            element={page.element}
+                            key={page.element}
+                        />)}
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
-}
+};
 
 export default App;
