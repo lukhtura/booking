@@ -1,14 +1,29 @@
 //CORE
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Form, Field } from "react-final-form";
 
-//COMPONENTS
+// Engine
+import selectors from "@/engine/core/destinations/selectors";
+import { getDestinationsAsync } from "@/engine/core/destinations/saga/asyncActions";
+
+// Components
 import { Box, Grid } from "@mui/material";
 import TextField from "@/ui/components/FormElements/TextField";
 import Select from "@/ui/components/FormElements/Select";
+import DataPicker from "@/ui/components/FormElements/DataPicker";
+import Button from "@/ui/components/Button";
 
 function DestinationsForm() {
 
+    /* STATE */
+    const dispatch = useDispatch();
+    const loader = useSelector(selectors.loader);
+
+    /* SUBMIT */
     const onSubmit = (value) => console.log(value);
+
+    useEffect
 
     return (
         <Form
@@ -18,14 +33,43 @@ function DestinationsForm() {
                     sx={{ margin: "30px 0" }}
                     component="form"
                     onSubmit={handleSubmit}>
+
                     <Grid container spacing={2}>
-                        <Grid item xs={1}>
+
+                        {/* DESTINATION SELECTOR */}
+
+                        <Grid item xs={3}>
                             <Field
-                                name="adults"
-                                label="Adults"
+                                name="destination"
+                                label="Destination"
                                 component={Select}
+                                options={[{ label: "test", value: "test" }]}
                             />
                         </Grid>
+
+                        {/* DATA PICKER CHECK IN */}
+
+                        <Grid item xs={3}>
+                            <Field
+                                name="check_in"
+                                label="Check in"
+                                component={DataPicker}
+                                minDate={() => new Date()}
+                            />
+                        </Grid>
+
+                        {/* DATA PICKER CHECK OUT */}
+
+                        <Grid item xs={3}>
+                            <Field
+                                name="check_out"
+                                label="Check out"
+                                component={DataPicker}
+                            />
+                        </Grid>
+
+                        {/* ADULTS QUANTITY INPUT */}
+
                         <Grid item xs={1}>
                             <Field
                                 name="adults"
@@ -33,14 +77,25 @@ function DestinationsForm() {
                                 component={TextField}
                             />
                         </Grid>
+
+                        {/* CHILDREN QUANTITY INPUT */}
+
                         <Grid item xs={1}>
                             <Field
                                 name="children"
-                                label="Chidlren"
+                                label="Children"
                                 component={TextField}
                             />
                         </Grid>
+
+                        {/* SUBMIT BUTTON */}
+
+                        <Grid item xs={1}>
+                            <Button type="submit" sx={{ height: "100%" }}>Submit</Button>
+                        </Grid>
+
                     </Grid>
+
                 </Box>
             )} />
     );

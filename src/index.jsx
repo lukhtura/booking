@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//COMPONENTS
+// Components
 import App from "@/ui/containers/App";
 
 //STYLES

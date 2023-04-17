@@ -1,11 +1,11 @@
 //CORE
 import ButtonMUI from "@mui/material/Button";
 
-//COMPONENTS
+// Components
 import LinkWrapper from "@/ui/components/Button/styledComponents";
 
 
-function Button({ disabled, type, children, sx, color, to }) {
+function Button({ disabled, type = "button", children, sx, color = "#fff", to }) {
 
     return (
         <ButtonMUI
@@ -14,7 +14,8 @@ function Button({ disabled, type, children, sx, color, to }) {
             sx={{ color: color, ...sx }}
             variant="contained"
         >
-            <LinkWrapper to={to} style={{ color: color }}>{children}</LinkWrapper>
+            {to ? <LinkWrapper to={to} style={{ color: color }}>{children}</LinkWrapper>
+                : children}
         </ButtonMUI>
     );
 };

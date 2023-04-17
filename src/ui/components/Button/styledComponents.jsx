@@ -1,7 +1,7 @@
 //CORE
 import { styled } from "@mui/system";
 
-//COMPONENTS
+// Components
 import { Link } from "react-router-dom";
 
 const LinkWrapper = styled(Link)({

@@ -1,9 +1,8 @@
-//COMPONENTS
+// Components
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import SelectMUI from '@mui/material/Select';
-
 
 function Select({ options, label, input: { onChange, value } }) {
 
@@ -15,7 +14,7 @@ function Select({ options, label, input: { onChange, value } }) {
                 label={label}
                 onChange={onChange}
             >
-                {options.map(option => (<MenuItem value={option.value}>{option.label}</MenuItem>))}
+                {options.map(option => (<MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>))}
             </SelectMUI>
         </FormControl>
     );

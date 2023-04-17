@@ -1,12 +1,16 @@
-//CORE
+// Core
 import { Outlet } from "react-router-dom";
-import { CssBaseline } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { orange } from "@mui/material/colors";
+import { Provider } from "react-redux";
+import { store } from "@/engine/init/store";
 
-//COMPONENTS
+// Components
 import Header from "@/ui/components/Header";
-import Footer from "@/ui/components/Footer";
+
+// Styles
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import orange from "@mui/material/colors/orange";
+import Container from "@mui/material/Container";
 
 const theme = createTheme({
     palette: {
@@ -19,10 +23,13 @@ const theme = createTheme({
 function Layout() {
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Header />
-            <Outlet />
-            <Footer />
+            <Provider store={store}>
+                <CssBaseline />
+                <Header />
+                <Container>
+                    <Outlet />
+                </Container>
+            </Provider>
         </ThemeProvider>
     );
 };

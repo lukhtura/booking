@@ -1,7 +1,7 @@
 //CORE
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-//ENGINE
+// Engine
 import { pages } from "@/engine/config/routes";
 
 //PARTS

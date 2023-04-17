@@ -1,4 +1,4 @@
-//ENGINE
+// Engine
 import { paths } from "@/engine/config/paths";
 
 //PAGES
