@@ -18,12 +18,15 @@ function DestinationsForm() {
 
     /* STATE */
     const dispatch = useDispatch();
-    const loader = useSelector(selectors.loader);
+    const loading = useSelector(selectors.loading);
 
-    /* SUBMIT */
+    /* FORM SUBMIT */
     const onSubmit = (value) => console.log(value);
 
-    useEffect
+    useEffect(() => {
+        console.log('mounted')
+        dispatch(getDestinationsAsync());
+    }, []);
 
     return (
         <Form
@@ -54,7 +57,8 @@ function DestinationsForm() {
                                 name="check_in"
                                 label="Check in"
                                 component={DataPicker}
-                                minDate={() => new Date()}
+                                disabled={loading}
+                            // minDate={() => new Date()}
                             />
                         </Grid>
 
@@ -91,7 +95,10 @@ function DestinationsForm() {
                         {/* SUBMIT BUTTON */}
 
                         <Grid item xs={1}>
-                            <Button type="submit" sx={{ height: "100%" }}>Submit</Button>
+                            <Button
+                                type="submit"
+                                disabled={loading}
+                                sx={{ height: "100%" }}>Submit</Button>
                         </Grid>
 
                     </Grid>

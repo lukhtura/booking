@@ -14,6 +14,7 @@ export const store = configureStore({
     reducer: {
         destinations, hotels
     },
-});
+    middleware: () => [sagaMiddleware]
+},);
 
 sagaMiddleware.run(rootSaga);

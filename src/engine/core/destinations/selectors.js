@@ -1,4 +1,4 @@
 export default {
-    items: state => state.destination.items,
-    loading: state => state.destination.loading,
+    items: state => state.destinations.items,
+    loading: state => state.destinations.loading,
 };

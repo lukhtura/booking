@@ -1,7 +1,7 @@
 // Engine
-import { callgetDestinationsWorker } from "@/engine/core/destinations/saga/workers/callGetDestinationWorker";
+import { callGetDestinationsWorker } from "@/engine/core/destinations/saga/workers/callGetDestinationsWorker";
 
 export {
-    callgetDestinationsWorker,
+    callGetDestinationsWorker,
 };
 

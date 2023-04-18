@@ -10,8 +10,12 @@ const hotels = createSlice({
     name: "hotels",
     initialState,
     reducers: {
-        setItems: (state, action) => state.items = action.payload,
-        setLoading: (state, action) => state.loading = action.payload,
+        setItems: (state, action) => {
+            state.items = action.payload
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload
+        },
     }
 });
 
